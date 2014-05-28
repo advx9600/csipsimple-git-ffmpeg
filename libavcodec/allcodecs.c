@@ -129,6 +129,7 @@ void avcodec_register_all(void)
     REGISTER_ENCDEC  (H263, h263);
     REGISTER_DECODER (H263I, h263i);
     REGISTER_ENCODER (H263P, h263p);
+	 REGISTER_DECODER (H264_A8,h264_a8); // dafeng
     REGISTER_DECODER (H264, h264);
     REGISTER_DECODER (H264_CRYSTALHD, h264_crystalhd);
     REGISTER_DECODER (H264_VDPAU, h264_vdpau);
@@ -422,6 +423,7 @@ void avcodec_register_all(void)
     REGISTER_ENCODER (LIBVO_AMRWBENC, libvo_amrwbenc);
     REGISTER_ENCDEC  (LIBVORBIS, libvorbis);
     REGISTER_ENCDEC  (LIBVPX, libvpx);
+	REGISTER_ENCODER (LIBXA8264, libxa8264); // dafeng
     REGISTER_ENCODER (LIBX264, libx264);
     REGISTER_ENCODER (LIBX264RGB, libx264rgb);
     REGISTER_ENCODER (LIBXAVS, libxavs);

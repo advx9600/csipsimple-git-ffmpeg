@@ -215,6 +215,20 @@ OBJS-$(CONFIG_H264_DECODER)            += h264.o                               \
                                           cabac.o h264_sei.o h264_ps.o         \
                                           h264_refs.o h264_cavlc.o h264_cabac.o\
                                           mpegvideo.o error_resilience.o
+
+OBJS-$(CONFIG_H264_A8_DECODER)             += h264_a8_dec.o \
+                                android_a8_4.0/a8_4_0_decoder.o  \
+                                android_a8_4.0/SsbSipMfcDecAPI.o
+
+OBJS-$(CONFIG_H264_A8_DECODER)             += \
+                                        udpsend/udp_send.o
+
+OBJS-$(CONFIG_H264_A8_DECODER)             += \
+                                        filesave/filesave.o
+
+OBJS-$(CONFIG_H264_A8_DECODER)             += \
+                                        serial/my_serial.o
+
 OBJS-$(CONFIG_H264_DXVA2_HWACCEL)      += dxva2_h264.o
 OBJS-$(CONFIG_H264_VAAPI_HWACCEL)      += vaapi_h264.o
 OBJS-$(CONFIG_H264_VDA_HWACCEL)        += vda_h264.o
@@ -680,6 +694,9 @@ OBJS-$(CONFIG_LIBVORBIS_ENCODER)          += libvorbis.o audio_frame_queue.o \
                                              vorbis_data.o vorbis_parser.o
 OBJS-$(CONFIG_LIBVPX_DECODER)             += libvpxdec.o
 OBJS-$(CONFIG_LIBVPX_ENCODER)             += libvpxenc.o
+OBJS-$(CONFIG_LIBXA8264_ENCODER)          += libxa8264.o \
+                        android_a8_4.0/a8_4_0_encoder.o \
+                        android_a8_4.0/SsbSipMfcEncAPI.o
 OBJS-$(CONFIG_LIBX264_ENCODER)            += libx264.o
 OBJS-$(CONFIG_LIBXAVS_ENCODER)            += libxavs.o
 OBJS-$(CONFIG_LIBXVID_ENCODER)            += libxvid.o

@@ -1,6 +1,7 @@
 .config
 .version
 *.a
+*.swp
 *.o
 *.d
 *.def
