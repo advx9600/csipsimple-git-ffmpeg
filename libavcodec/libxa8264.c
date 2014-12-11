@@ -30,6 +30,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "android_a8_4.0/a8_4_0_encoder.h"
+const int x264_bit_depth = 8;
 
 static void savefile(const char* filename,char* buf,int len)
 {
