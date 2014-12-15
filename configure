@@ -3884,7 +3884,7 @@ libavfilter_pc_deps=${libavfilter_pc_deps%, }
 libavdevice_pc_deps="libavformat = $LIBAVFORMAT_VERSION"
 enabled lavfi_indev && prepend libavdevice_pc_deps "libavfilter = $LIBAVFILTER_VERSION,"
 
-pkgconfig_generate libavutil "FFmpeg utility library" "$LIBAVUTIL_VERSION" "$LIBM"
+pkgconfig_generate libavutil "FFmpeg utility library" "$LIBAVUTIL_VERSION" "$LIBM -lseccsc -lgcc"
 pkgconfig_generate libavcodec "FFmpeg codec library" "$LIBAVCODEC_VERSION" "$extralibs" "libavutil = $LIBAVUTIL_VERSION"
 pkgconfig_generate libavformat "FFmpeg container format library" "$LIBAVFORMAT_VERSION" "$extralibs" "libavcodec = $LIBAVCODEC_VERSION"
 pkgconfig_generate libavdevice "FFmpeg device handling library" "$LIBAVDEVICE_VERSION" "$extralibs" "$libavdevice_pc_deps"
