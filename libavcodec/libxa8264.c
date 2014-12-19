@@ -176,6 +176,7 @@ static av_cold int X264_close(AVCodecContext *avctx)
 		A8MfcEncParam* param = avctx->priv_data;
 		encoder_close(param);
 		if (param->outputFrame != NULL) av_free(param->outputFrame);
+		if (avctx->extradata) av_freep(&avctx->extradata);
     return 0;
 }
 
@@ -208,7 +209,8 @@ static av_cold int X264_init(AVCodecContext *avctx)
 
 	ret=encoder_init(param);
 
-	avctx->extradata=param->headerData;
+	avctx->extradata=av_malloc(param->headerSize);
+	memcpy(avctx->extradata,param->headerData,param->headerSize);
 	avctx->extradata_size = param->headerSize;
 	avctx->log_level_offset =1;
 	return ret;

@@ -2,6 +2,7 @@
 #define _A8_4_0_ENCODER_H_
 #include <stdio.h>
 #include <stdlib.h>
+#include "../avcodec.h"
 #include "mfc_interface.h"
 #include "SsbSipMfcApi.h"
 
@@ -32,6 +33,7 @@ do { \
 #endif
 
 typedef struct a8MfcEncParam {
+	AVClass * 	av_class;
 	_MFCLIB* mfcHandle;
 	int width;
 	int height;

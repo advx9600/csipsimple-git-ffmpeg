@@ -12,12 +12,12 @@ int encoder_init(A8MfcEncParam* param) {
 	create_udp_socket(0);
 	#endif
 
-	param->headerData = malloc(1024 * 1024);
+	param->headerData = av_malloc(1024 * 1024);
 	if (param->headerData == NULL) {
 		LOGE("malloc headerData failed!");
 		return -1;
 	}
-	param->inputData = malloc(1024 * 1024 * 3);
+	param->inputData = av_malloc(1024 * 1024 * 3);
 	if (param->inputData == NULL) {
 		LOGE("malloc inputData failed");
 		return -1;
@@ -152,7 +152,9 @@ int encoder_exe(A8MfcEncParam* param, char* buf) {
 
 void encoder_close(A8MfcEncParam* param) {
 	if (param->headerData != NULL)
-		free(param->headerData);
+		av_free(param->headerData);
+	if (param->inputData != NULL)
+		av_free(param->inputData);
 	SsbSipMfcEncClose(param->mfcHandle);
 	#ifdef UDP_SEND_DATA
 	close_udp_socket();
